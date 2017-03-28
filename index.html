@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Content Security Policy (CSP) demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Content Security Policy (CSP) demo</h1>
+
+    <p>&nbsp;</p>
+
+    <div class="well">
+        Open the <code>Console</code> tab on <code>Developer Tools</code> to see CSP violations.
+    </div>
+
+    <p>&nbsp;</p>
+
+    <hr/>
+
+    <p>&nbsp;</p>
+
+    <h2>Stylesheets</h2>
+
+    <div class="alert alert-success">
+        The Bootstrap styles & fonts <strong>should load</strong> because <code>bootstrapcdn.com</code> and <code>*.bootstrapcdn.com</code>
+        are whitelisted on the <code>style-src</code> and <code>font-src</code> directives.
+    </div>
+
+    <p>&nbsp;</p>
+
+    <hr/>
+
+    <p>&nbsp;</p>
+
+    <h2>Scripts</h2>
+
+    <div class="alert alert-success">
+        The jQuery & Bootstrap scripts <strong>should load</strong> because <code>bootstrapcdn.com</code>, <code>*.bootstrapcdn.com</code>,
+        <code>googleapis.com</code>, and <code>*.googleapis.com</code> are whitelisted on the <code>style-src</code> and
+        <code>font-src</code> directives.
+    </div>
+
+    <p>&nbsp;</p>
+
+    <hr/>
+
+    <p>&nbsp;</p>
+
+    <h2>Images</h2>
+
+    <div class="alert alert-success">
+        The image below <strong>should load</strong> because <code>imgur.com</code> and <code>*.imgur.com</code> are
+        whitelisted on the <code>img-src</code> directive.
+    </div>
+
+    <img src="http://i.imgur.com/Qq74GNT.jpg" height="80" alt="Aladeen"/>
+
+    <p>&nbsp;</p>
+
+    <div class="alert alert-warning">
+        The image below <strong>should NOT load</strong> because <code>*.9cache.com</code> is not whitelisted on the
+        <code>img-src</code> directive.
+    </div>
+
+    <img src="https://img-9gag-fun.9cache.com/photo/axVWrDK_460s.jpg" height="80" alt="Godzilla vs King Kong"/>
+
+    <p>&nbsp;</p>
+
+    <hr/>
+
+    <p>&nbsp;</p>
+
+    <h2>Forms</h2>
+
+    <div class="alert alert-success">
+        The form below <strong>should submit</strong> because <code>'self'</code> is whitelisted on the
+        <code>form-action</code> directive.
+    </div>
+
+    <form action="http://www.google.com/">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit" placeholder="Your name"/>
+        </div>
+    </form>
+
+    <p>&nbsp;</p>
+
+    <div class="alert alert-warning">
+        The form below <strong>should NOT submit</strong> because <code>*.google.com</code> is not whitelisted on the
+        <code>form-action</code> directive.
+    </div>
+
+    <form action="http://www.google.com/">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your name"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Submit" placeholder="Your name"/>
+        </div>
+    </form>
+
+    <p>&nbsp;</p>
+
+    <hr/>
+
+    <p>&nbsp;</p>
+
+    <h2>IFrames</h2>
+
+    <div class="alert alert-warning">
+        This page <strong>should not be embeddable</strong> on other sources because <code>'none'</code> is the value
+        specified on the <code>frame-ancestors</code> directive.
+    </div>
+
+    <p>&nbsp;</p>
+
+    <hr/>
+
+    <p>&nbsp;</p>
+
+    <h2>AJAX</h2>
+
+    <div class="alert alert-success">
+        This button <strong>should get an API response</strong> because <code>pokeapi.co</code> is whitelisted the <code>connect-src</code> directive.
+    </div>
+
+    <button class="btn btn-info" id="pokeapi">Get a pokeapi.co API response</button>
+
+    <p>&nbsp;</p>
+
+    <div class="alert alert-warning">
+        This button <strong>should not get an API response</strong> because <code>swapi.co</code> is not
+        whitelisted on the <code>connect-src</code> directive.
+    </div>
+
+    <button class="btn btn-info" id="swapi">Get a swapi.co API response</button>
+
+    <p>&nbsp;</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./scripts.js"></script>
+
+</body>
+</html>

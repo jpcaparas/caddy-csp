@@ -1,0 +1,17 @@
+localhost:2015 {
+    header / {
+        # Enable cross-site filter (XSS) 
+        # and tell browser to block detected attacks    
+        X-Frame-Options "Deny"
+        Content-Security-Policy "
+            default-src 'self';
+            style-src 'self' bootstrapcdn.com *.bootstrapcdn.com;
+            script-src 'self' bootstrapcdn.com *.bootstrapcdn.com googleapis.com *.googleapis.com;
+            font-src 'self' bootstrapcdn.com *.bootstrapcdn.com;
+            img-src data: 'self' imgur.com *.imgur.com;
+            form-action 'self';
+            connect-src 'self' pokeapi.co;
+            frame-ancestors 'none';
+        "
+    }
+}
