@@ -1,10 +1,13 @@
 # Setting CSP headers on a Caddy server
 
 ## Overview
-This guide shows how to set [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers on a [Caddy web server](https://caddyserver.com/).
+This guide shows how [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers improve the security of a web page. We will be using a [Caddy web server](https://caddyserver.com/) to serve up CSP-protected web page.
 
-## Installation
-1. Download the latest version of Caddy [here](https://caddyserver.com/download) or, if you are on a Mac and have [Homebrew](https://brew.sh/) installed, run `brew install caddy`.
+## Running the web page
+1. Clone this repository and `cd` into it.
+1. Make sure Caddy is installed; if not, download the latest version [here](https://caddyserver.com/download) or, if you are on a Mac and have [Homebrew](https://brew.sh/) installed, run `brew install caddy`.
+1. Run `caddy` on the terminal to serve the web page at `http://localhost:2015`. It should load the `Caddyfile` in the root directory.
+1. Assuming you're using Google Chrome / Firefox, using your browser's developer tools, open the _Console_ tab to see errors associated with CSP response header directives we set on the `Caddyfile`.
 
 ## Disclaimer
 1. This guide was done on a Caddy server running on a macOS Sierra machine.
