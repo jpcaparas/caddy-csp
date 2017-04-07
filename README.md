@@ -14,7 +14,8 @@ Sentry is a popular logging mechanism
 1. Clone this repository and `cd` into it.
 1. Make sure Caddy is installed (we're using `v0.9.5` for this demo); if not, download the latest version [here](https://caddyserver.com/download) or, if you are on a Mac and have [Homebrew](https://brew.sh/) installed, run `brew install caddy`.
 1. On your terminal, run `CSP_REPORT_URI="[csp-endpoint-you-copied-earlier]" caddy` to serve the web page at `http://localhost:2015`. This command will use the `Caddyfile` in the root directory, where restrictions are defined under the `Content-Security-Policy` header.
-1. Using your browser's developer tools, open the _Console_ tab to see the violations.
+1. Using your browser's developer tools, open the _Console_ tab to see the violations.  
+![Console errors](http://i.imgur.com/1W9Ubaml.png)
 
 ## :warning: Viewing violations on Sentry
 If the report URI key you entered is valid, you should also start seeing violations on your project dashboard on Sentry:
