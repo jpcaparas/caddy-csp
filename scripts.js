@@ -1,4 +1,4 @@
-// Get API responses
+// Get API responses from API servers
 $(document).on('ready', function() {
     var
         $pokeBtn = $('#pokeapi'),
