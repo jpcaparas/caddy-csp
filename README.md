@@ -1,7 +1,7 @@
 # :lock: Setting CSP headers on a Caddy server
 
 ## :information_desk_person: Overview
-This guide shows how [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) HTTP response headers improve the security of a web page by **limiting the rendering/execution of styles, scripts, images, form submissions, and AJAX requests to only white-listed hostnames**. We will be using a [Caddy web server](https://caddyserver.com/) to serve up CSP-protected web page and [Sentry](https://sentry.io/) to log violations.
+This guide shows how [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) HTTP response headers improve the security of a web page by **restricting the rendering/execution of styles, scripts, images, form submissions, and AJAX requests to only white-listed hostnames**. We will be using a [Caddy web server](https://caddyserver.com/) to serve up a CSP-protected web page and [Sentry](https://sentry.io/) to log violations.
 
 ## :key: Getting a Sentry API key
 Sentry is a popular service that logs application exceptions, but it can do much more -- it can also log CSP violations.
@@ -18,7 +18,7 @@ Sentry is a popular service that logs application exceptions, but it can do much
 ![Console errors](http://i.imgur.com/1W9Ubaml.png)
 
 ## :warning: Viewing violations on Sentry
-If the report URI key you entered is valid, you should also start seeing violations on your project dashboard on Sentry:
+If the report URI key you entered is valid, you should start violation entries on your project dashboard:
 
 ![Sentry log](http://i.imgur.com/dOeZ7Sll.jpg)
 
